@@ -41,7 +41,7 @@ There's an experimental patch for windows in this [PR](https://github.com/udacit
 For this project I implemented a PID control in order to allow a car to drive around a race track.
 
 **P** is the proportional term that actuates according to the Cross-Track Error (CTE). A high P-coefficient allows the car to drive the error to zero faster. 
-However, it causes the car to overshoot and oscillate. The derivat ive term **D** takes into account the current error change rate, an thus reduces overshooting,
+However, it causes the car to overshoot and oscillate. The derivative term **D** takes into account the current error change rate, an thus reduces overshooting,
 allowing the car to stay closer to the reference line. Finally, to account for errors that may cause drift, an integral term **I** is introduced. 
 The integral term accumulates past errors, and drives the car in the opposite direction of the sum of past errors. 
 
@@ -63,4 +63,4 @@ For future work, an automatic parameter optimization algorithm such as *twiddle*
 A PID controller was also implemented for generating throttle commands. This PID was manually tuned to drive safely
  trying to reduce the accumulated total squared error and average error. It tries to reach the target speed, but it takes
 into account the current error and steering angle to reduce that target speed. Braking is only applied when the CTE or the steering angle is high. 
-For low CTE and angles the throttle is set to 0 if the
+For low CTE and angles the throttle is set to 0 to avoid excesive braking.
